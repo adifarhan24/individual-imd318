@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adi Farhan - Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #005f73, #94d2bd);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header h3 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+            font-weight: 300;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #005f73;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background: #94d2bd;
+            color: #005f73;
+            transform: scale(1.1);
+        }
+
+        .slider-frame {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .slide-images {
+            display: flex;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .img-container {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            opacity: 0;
+            animation: fadeInSlide 1s ease-in-out forwards;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease-out;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .img-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-align: center;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .nav-btn:hover {
+            background: #94d2bd;
+            transform: scale(1.2);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        section h1, section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #005f73;
+            font-family: 'Playfair Display', serif;
+        }
+
+        section h1 {
+            font-size: 3rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .about img {
+            border-radius: 50%;
+            width: 200px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .about img:hover {
+            transform: scale(1.1);
+        }
+
+        .about p {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+
+        video {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        video:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #005f73;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #94d2bd;
+        }
+
+        .skills {
+            background: #f4f4f4;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .skills h2 {
+            font-size: 2.5rem;
+            color: #005f73;
+            margin-bottom: 30px;
+        }
+
+        .skill {
+            display: inline-block;
+            margin: 25px;
+            text-align: center;
+            animation: fadeInSlide 1.2s ease-in-out forwards;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            height: 20px;
+            margin-top: 10px;
+        }
+
+        .progress-bar div {
+            height: 100%;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+            padding-left: 10px;
+            line-height: 20px;
+        }
+
+        .progress-bar .html { width: 90%; background: #005f73; }
+        .progress-bar .css { width: 80%; background: #0296b5; }
+        .progress-bar .js { width: 75%; background: #f0db4f; color: black; }
+        .progress-bar .photoshop { width: 70%; background: #31a8ff; }
+
+        @media (max-width: 768px) {
+            header h3 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                margin: 0 8px;
+                padding: 8px 10px;
+                font-size: 1rem;
+            }
+
+            .about img {
+                width: 150px;
+            }
+
+            section h1, section h2 {
+                font-size: 2rem;
+            }
+
+            footer {
+                padding: 15px 10px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+<audio id="background-music" src="music/travel.mp3" autoplay loop muted></audio>
+<script>
+    const music = document.getElementById("background-music");
+
+    // Unmute and play audio after user interaction
+    document.addEventListener("click", () => {
+        music.muted = false;
+        music.play(); // Ensure it starts playing
+    }, { once: true });
+</script>
+
+ </script>
+
+<header>
+    <h3>ADI FARHAN</h3>
+    <p>Welcome to My Personal Website</p>
+</header>
+
+<nav>
+    <a href="index.html">About Me</a>
+    <a href="education.html">Education</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Image Slider -->
+<div class="slider-frame">
+    <div class="slide-images" id="slider">
+        <div class="img-container">
+            <img src="image/santai.png" alt="Farhan">
+            <div class="caption">Welcome to Farhan's World</div>
+        </div>
+        <div class="img-container">
+            <img src="image/raya21.jpg" alt="Family">
+            <div class="caption">Family is Everything</div>
+        </div>
+        <div class="img-container">
+            <img src="image/futsal1.jpg" alt="Suksis">
+            <div class="caption">SUKAN SUKSIS ZON UTARA</div>
+        </div>
+        <div class="img-container">
+            <img src="image/kelas.jpg" alt="School">
+            <div class="caption">School memories</div>
+        </div>
+        <div class="img-container">
+            <img src="image/dinner.jpg" alt="SUKSIS">
+            <div class="caption">Suksis Dinner</div>
+        </div>
+        <div class="img-container">
+            <img src="image/suksis5.jpg" alt="School">
+            <div class="caption">Proud Achievements</div>
+        </div>
+    </div>
+    <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<section id="about">
+    <h1>About Me</h1>
+    <div class="about">
+        <img src="image/adi12.jpg" alt="Adi Farhan">
+        <p>
+            Hi there! I’m Adi Farhan, and welcome to my personal corner of the internet. 
+            I’m a passionate individual with a love for creativity, adventure, and learning. 
+            Whether it's through my school experiences, family moments, or the hobbies I indulge in, 
+            I believe there’s always something new to learn and discover. 
+        </p>
+    </div>
+    <h2>Showreel</h2>
+    <video width="400" height="300" controls>
+        <source src="video/aboutme.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<!-- Skills Section -->
+<section class="skills" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill" aria-label="Communication skill">
+            <div class="skill-content">
+                <div class="skill-icon html-icon"></div>
+                <h3>Communication</h3>
+                <p class="skill-description">We have two ears and one mouth so that we can listen twice as much as we speak.</p>
+            </div>
+            <div class="progress-bar" aria-label="Communication skill level">
+                <div class="progress" style="width: 90%" data-progress="90"></div>
+            </div>
+        </div>
+        <div class="skill" aria-label="Time Management skill">
+            <div class="skill-content">
+                <div class="skill-icon css-icon"></div>
+                <h3>Time Management</h3>
+                <p class="skill-description">The secret of your future is hidden in your daily routine.</p>
+            </div>
+            <div class="progress-bar" aria-label="Time Management skill level">
+                <div class="progress" style="width: 60%" data-progress="60"></div>
+            </div>
+        </div>
+        <div class="skill" aria-label="Decision Making skill">
+            <div class="skill-content">
+                <div class="skill-icon js-icon"></div>
+                <h3>Decision Making</h3>
+                <p class="skill-description">Make decisions that prioritize your inner peace.</p>
+            </div>
+            <div class="progress-bar" aria-label="Decision Making skill level">
+                <div class="progress" style="width: 75%" data-progress="75"></div>
+            </div>
+        </div>
+        <div class="skill" aria-label="Leadership skill">
+            <div class="skill-content">
+                <div class="skill-icon photoshop-icon"></div>
+                <h3>Leadership</h3>
+                <p class="skill-description">Leadership and learning are indispensable to each other.</p>
+            </div>
+            <div class="progress-bar" aria-label="Leadership skill level">
+                <div class="progress" style="width: 70%" data-progress="70"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+        --primary-color: #005f73;
+        --secondary-color: #81c784;
+        --bg-light: #f4f4f4;
+        --bg-dark: #fff;
+        --text-dark: #333;
+        --text-light: #555;
+    }
+
+    .skills {
+        background: var(--bg-light);
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .skills h2 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 30px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        animation: fadeInSkills 2s ease-in-out;
+    }
+
+    .skill {
+        background-color: var(--bg-dark);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        opacity: 0;
+        animation: fadeInCard 0.5s ease forwards;
+    }
+
+    .skill:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .skill:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    .skill:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    .skill:nth-child(4) {
+        animation-delay: 0.8s;
+    }
+
+    .skill:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-content {
+        text-align: center;
+    }
+
+    .skill-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        border: 5px solid #ddd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-color: var(--primary-color);
+    }
+
+    .html-icon {
+        background-image: url('image/public.jpg');
+    }
+
+    .css-icon {
+        background-image: url('image/farhan.jpg');
+    }
+
+    .js-icon {
+        background-image: url('image/kaca.jpg');
+    }
+
+    .photoshop-icon {
+        background-image: url('image/kawad.jpg');
+    }
+
+    .skill h3 {
+        font-size: 1.6rem;
+        color: var(--text-dark);
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .skill-description {
+        font-size: 1rem;
+        color: var(--text-light);
+        font-weight: 300;
+        line-height: 1.5;
+    }
+
+    .progress-bar {
+        margin-top: 20px;
+        width: 100%;
+        background-color: #ddd;
+        border-radius: 5px;
+        height: 20px;
+        overflow: hidden;
+    }
+
+    .progress {
+        height: 100%;
+        border-radius: 5px;
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        animation: progressAnimation 2s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInSkills {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInCard {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes progressAnimation {
+        from {
+            width: 0%;
+        }
+        to {
+            width: var(--progress);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .skills-container {
+            grid-template-columns: 1fr;
+        }
+
+        .skill {
+            padding: 20px;
+        }
+    }
+</style>
+<section id="biodata">
+    <h1>Biodata</h1>
+    <div class="biodata-container">
+        <table class="biodata-table">
+            <tr>
+                <th>Full Name:</th>
+                <td>ADI FARHAN BIN MOHD FAIZAL</td>
+            </tr>
+            <tr>
+                <th>Date of Birth:</th>
+                <td>November 24, 2004</td>
+            </tr>
+            <tr>
+                <th>Nationality:</th>
+                <td>Malaysian</td>
+            </tr>
+            <tr>
+                <th>Ambition:</th>
+                <td>Teacher</td>
+            </tr>
+            <tr>
+                <th>Languages:</th>
+                <td>English, Malay</td>
+            </tr>
+            <tr>
+                <th>Contact:</th>
+                <td>Email: adifarhan805@gmail.com | 
+Phone: +60-199-970-293</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<style>
+    /* Section Styling */
+    #biodata {
+        background: linear-gradient(135deg, #74b9ff, #a29bfe);
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    #biodata h1 {
+        font-size: 3rem;
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .biodata-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        animation: slideUp 1.5s ease-in-out;
+    }
+
+    /* Table Styling */
+    .biodata-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1.2rem;
+        color: #fff;
+    }
+
+    .biodata-table th, .biodata-table td {
+        text-align: left;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .biodata-table th {
+        background-color: rgba(0, 0, 0, 0.5);
+        font-weight: bold;
+    }
+
+    .biodata-table tr:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
+<button id="back-to-top" class="back-to-top">↑</button>
+<style>
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #005f73, #94d2bd);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: none; /* Initially hidden */
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        z-index: 1000;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-to-top:hover {
+        transform: scale(1.2);
+        background: linear-gradient(135deg, #94d2bd, #005f73);
+    }
+
+    .back-to-top.show {
+        display: flex;
+        opacity: 1;
+    }
+
+    .back-to-top.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+<script>
+    // Select the button
+    const backToTopButton = document.getElementById("back-to-top");
+
+    // Show the button when scrolling down
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+            backToTopButton.classList.add("show");
+            backToTopButton.classList.remove("hide");
+        } else {
+            backToTopButton.classList.add("hide");
+            backToTopButton.classList.remove("show");
+        }
+    });
+
+    // Smooth scroll to top on button click
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+
+<footer>
+    <p>&copy; 2024 Adi Farhan. All Rights Reserved.</p>
+    <div>
+        <a href="https://www.instagram.com/adifrhn_/profilecard/?igsh=YjJyZTRobWxnc3V2" target="_blank">
+            <img src="image/ig.png" alt="instagram">
+            <br>
+            <center>@adifrhn24</center>
+        </a>
+    </div>
+</footer>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".img-container");
+    const totalSlides = slides.length;
+
+    function moveSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        document.getElementById("slider").style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Automatic slide change every 5 seconds
+    setInterval(() => {
+        moveSlide(1);
+    }, 5000);
+</script>
+
+</body>
+</html>
+
+
+

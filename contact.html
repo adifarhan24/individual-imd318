@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Section</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9d2, #fad0c4);
+            color: #333;
+        }
+
+        header {
+            background-color: #f76c6c;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-family: 'Georgia', serif;
+        }
+
+        header p {
+            margin: 5px 0 10px;
+            font-size: 1.4em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f4a261;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ffd6d6;
+            color: #f76c6c;
+            transform: scale(1.1);
+        }
+
+        .contact-section {
+            text-align: center;
+            margin: 20px auto;
+            padding: 30px;
+            max-width: 900px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-section h2 {
+            font-size: 2.2em;
+            color: #f76c6c;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            max-width: 600px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #f4a261;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            padding: 12px 20px;
+            border: none;
+            background-color: #f76c6c;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #f4a261;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: #f76c6c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #f76c6c;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        footer a {
+            color: #ffe8f5;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADI FARHAN</h1>
+        <p>Contact Me</p>
+    </header>
+
+    <nav>
+        <a href="index.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="friends.html">Friends</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>Feel free to reach out to me through the contact form below or directly via email or phone. I'd love to hear from you!</p>
+
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+
+        <div class="contact-info">
+            <p>Or you can contact me directly at:</p>
+            <p>Email: <a href="mailto:adifarhan@gmail.com">adifarhan805@gmail.com</a></p>
+            <p>Phone: 0199970293</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Adi Farhan | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+    </footer>
+<audio id="background-music" src="music/travel.mp3" autoplay loop muted></audio>
+<script>
+    const music = document.getElementById("background-music");
+
+    // Unmute and play audio after user interaction
+    document.addEventListener("click", () => {
+        music.muted = false;
+        music.play(); // Ensure it starts playing
+    }, { once: true });
+</script>
+
+
+</body>
+</html>
+
+

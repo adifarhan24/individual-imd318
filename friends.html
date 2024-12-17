@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Section</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background: #2b2b2b;
+            color: #e0e0e0;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #00a8cc;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.5em;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #ff6f61;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #bbdefb;
+            color: #1565c0;
+            transform: scale(1.1);
+        }
+
+        /* Intro Section */
+        .friends-intro {
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        .friends-intro h2 {
+            color: #1565c0;
+            font-size: 2.5em;
+        }
+
+        /* Friends Gallery */
+        .friends-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .friend-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .friend-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .friend-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .friend-card h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+            color: #1565c0;
+        }
+
+        .friend-card p {
+            padding: 0 10px 20px;
+            color: #666;
+        }
+
+        .friend-card button {
+            margin-bottom: 15px;
+            background: #1565c0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .friend-card button:hover {
+            background: #1e88e5;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f1f8e9;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .testimonials h2 {
+            color: #2e7d32;
+            font-size: 2em;
+        }
+
+        .testimonials p {
+            font-style: italic;
+            margin: 10px auto;
+            color: #555;
+            max-width: 600px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1565c0;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #bbdefb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Theme Toggle */
+        #themeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1565c0;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        #themeToggle:hover {
+            background: #1e88e5;
+        }
+    </style>
+</head>
+<body>
+    <button id="themeToggle" aria-label="Switch Theme">Switch Theme</button>
+    <header>
+        <h1>ADI FARHAN</h1>
+        <p>My Friends</p>
+    </header>
+
+    <nav>
+        <a href="index.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="friends.html">Friends</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="friends-intro">
+        <h2>Welcome to My Friends Section</h2>
+        <p>Friends bring joy and warmth to life. Discover the special connections that light up my world.</p>
+    </section>
+
+    <section class="friends-gallery">
+        <div class="friend-card">
+            <img src="image/hiker54.jpg" alt="Faris Yusri, Gym Partner">
+            <h3>Faris Yusri</h3>
+            <p>Gym Partner</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/ayie.jpg" alt="Ayie, The Comedian">
+            <h3>Ayie</h3>
+            <p>The Comedian</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/razen.jpg" alt="Razen Asyraf, Late-Night Talk Buddy">
+            <h3>Razen Asyraf</h3>
+            <p>A brilliant mind and my late-night talk buddy.</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/akmal.jpg" alt="Akmal Hafiz, True Friend">
+            <h3>Akmal Hafiz</h3>
+            <p>A true friend who always has my back.</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/pauk.jpg" alt="Pauk, Adventurer">
+            <h3>Pauk</h3>
+            <p>The life of every party and my go-to adventurer.</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/squad10.jpg" alt="Squad 10">
+            <h3>Squad 10</h3>
+            <p>"Life was meant for good friends and great adventures."</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/classmate.jpg" alt="Classmates">
+            <h3>Classmates</h3>
+            <p>"Love is beautiful, but friendship is better."</p>
+        </div>
+        <div class="friend-card">
+            <img src="image/hostel.jpg" alt="Hostel Life">
+            <h3>Hostel</h3>
+            <p>Hostel life teaches us the difficulties of life.</p>
+        </div>
+    </section>
+<center>
+<h2>Showreel</h2>
+        <video width="400" height="300" controls>
+            <source src="video/ayie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+ <video width="400" height="300" controls>
+            <source src="video/real.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+
+    <section class="testimonials">
+        <h2>What Friendship Means to Me</h2>
+        <p>"Friendship is a gift that makes life meaningful."</p>
+        <p>"Good friends are like stars—you don't always see them, but you know they're there."</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Adi Farhan | <a href="#">Privacy Policy</a> | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+        });
+    </script>
+
+<audio id="background-music" src="music/travel.mp3" autoplay loop muted></audio>
+<script>
+    const music = document.getElementById("background-music");
+
+    // Unmute and play audio after user interaction
+    document.addEventListener("click", () => {
+        music.muted = false;
+        music.play(); // Ensure it starts playing
+    }, { once: true });
+</script>
+
+
+</body>
+</html>

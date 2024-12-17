@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #2c4f5c;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #005f73;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: #94d2bd;
+            color: #005f73;
+            transform: scale(1.1);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #94d2bd;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+            left: 0;
+        }
+
+        .gallery-section {
+            padding: 50px 10px;
+            text-align: center;
+            background: linear-gradient(to bottom, #005f73, #94d2bd);
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-item .overlay {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADI FARHAN</h1>
+        <p>Welcome to My Personal Website</p>
+    </header>
+
+    <nav>
+        <a href="index.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="friends.html">Friends</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <section class="gallery-section" id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="image/farhan.jpg" alt="Fitness">
+                <div class="overlay">Fitness</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/family1.jpg" alt="Family">
+                <div class="overlay">Family</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/suksis.jpg" alt="Suksis">
+                <div class="overlay">Suksis</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/kawan.jpg" alt="Healing">
+                <div class="overlay">Healing</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/kawad.jpg" alt="Suksis">
+                <div class="overlay">Suksis</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/hobi2.jpg" alt="Suksis">
+                <div class="overlay">Suksis</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/childhood.jpg" alt="Childhood">
+                <div class="overlay">Childhood</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/cameron.jpg" alt="Travel">
+                <div class="overlay">Travel</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image/hiker.jpg" alt="Friends">
+                <div class="overlay">Friends</div>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="video/bar2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="video/bar.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="video/laki.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+<audio id="background-music" src="music/travel.mp3" autoplay loop muted></audio>
+<script>
+    const music = document.getElementById("background-music");
+
+    // Unmute and play audio after user interaction
+    document.addEventListener("click", () => {
+        music.muted = false;
+        music.play(); // Ensure it starts playing
+    }, { once: true });
+</script>
+
+
+</body>
+</html>
